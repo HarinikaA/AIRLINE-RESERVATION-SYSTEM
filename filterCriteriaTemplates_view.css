@@ -1,0 +1,90 @@
+.filterCriteriaTemplates_root .subItem{
+    padding-left:1vw;
+    font-size: 0.7vw;
+    display: flex;
+    height: 1.75vw;
+    color: #606060;
+}
+.filterCriteriaTemplates_root .subItem:hover:not(:focus-within){
+    background-color: #f2f2f2;
+}
+.filterCriteriaTemplates_root input[type="checkbox"] {
+    cursor: pointer;
+    width: 1em;
+    margin-right: 0.65em;
+    font-size: 0.7vw;
+}
+.filterCriteriaTemplates_root input[type="radio"] {
+    cursor: pointer;
+    width: 1em;
+    margin-right: 0.65em;
+    font-size: 0.7vw;
+}
+.filterCriteriaTemplates_root #custom-input{
+    display: flex;
+    align-items: center;
+}
+.filterCriteriaTemplates_root #custom-input>input{
+    outline: none;
+    border: none;
+    font-size: 0.7vw;
+    letter-spacing: 0.05vw;
+    padding-bottom: 0.1vw;
+    border-bottom: 0.025em solid #e0e0e0;
+    color: #606060;
+    background-color: inherit;
+}
+.filterCriteriaTemplates_root #custom-input>[class*="edit"]{
+    display: none;
+}
+.filterCriteriaTemplates_root:hover #custom-input>[class*="edit"]{
+    display: block;
+    padding: 0.5vw;
+    color:#808080;
+    cursor: pointer;
+}
+.filterCriteriaTemplates_root #custom-input:hover>[class*="edit"]{
+    color:#606060;
+}
+.filterCriteriaTemplates_root #preDefined>.subItem{
+    display: flex;
+    align-items: center;
+}
+.filterCriteriaTemplates_root #customString>#options{
+    display: flex;
+    margin:0.25vw 1vw;
+    justify-content: flex-start;
+}
+.filterCriteriaTemplates_root #customString>#options>#new>.material-symbols-outlined {
+    font-size: 0.8vw;
+    color:#27abff;
+}
+.filterCriteriaTemplates_root #customString>#options>#new{
+    font-size: 0.7vw;
+    letter-spacing: 0.025vw;
+    color:#27abff;
+    display: flex;
+    cursor: pointer;
+}
+.filterCriteriaTemplates_root #customString>#options>#clear{
+    font-size: 0.7vw;
+    letter-spacing: 0.025vw;
+    color:#808080;
+    opacity: 85%;
+    display: flex;
+    margin-left: 1vw;
+    cursor:pointer;
+}
+.filterCriteriaTemplates_root #customNumber>.subItem>#custom-input>input{
+    width:4vw;
+}
+.filterCriteriaTemplates_root #customNumber>.subItem>#custom-input>#to{
+    margin:0 1vw;
+}
+.filterCriteriaTemplates_root #customNumberhasUnit>.subItem>#custom-input{
+    position: relative;
+}
+.filterCriteriaTemplates_root #customNumberhasUnit>.subItem>#custom-input>input{
+    width:4vw;
+}
+

@@ -1,0 +1,569 @@
+
+.search-container {
+    font-size: 0.75vw;
+    letter-spacing: 0.05vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.search-container>#search-bar {
+    border: 0.01em solid #e0e0e0;
+    border-radius: 0.25em;
+    color: #ccc;
+    background-color: #f9f9f9;
+    padding: 0.3vw 0.6vw;
+    width: 40vw;
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.2s linear;
+}
+
+.search-container>#search-bar:hover {
+    border: 0.01em solid #cccccc;
+}
+
+.search-container>#search-bar:focus-within {
+    border: 0.01em solid #d3d3d3;
+    background-color: #fff;
+    transition: all 0.2s linear;
+}
+
+.search-container>#search-bar>input#search-inp {
+    outline: none;
+    border: none;
+    background-color: #f9f9f9;
+    width: 100%;
+    color: #606060;
+    font-size: 0.75vw;
+    letter-spacing: 0.05em;
+}
+
+.search-container>#search-bar>.material-symbols-outlined {
+    width: 1vw;
+    font-size: 1.75em;
+}
+
+.search-container>#search-bar>input#search-inp:focus {
+    background-color: #fff;
+}
+
+.search-container>#search-bar>input#search-inp::placeholder,
+.search-container>#sugg-container #custom-input>input::placeholder {
+    color: #aaaaaa;
+    letter-spacing: 0.06em;
+}
+
+.search-container>#sugg-container {
+    width: 39.5vw;
+    height: 25vw;
+    display: flex;
+    border: 0.01em solid #e0e0e0;
+    border-radius: 0 0 0.25em 0.25em;
+}
+
+.search-container>#sugg-container>#sugg-list {
+    overflow: auto;
+    border-right:0.01em solid #e0e0e0;
+    width: 60%;
+}
+/* 
+.search-container>#sugg-container>#sugg-list>.item {
+    color: #444;
+    border-bottom: 0.01em solid #efefef;
+    min-height: 2vw;
+}
+
+.search-container>#sugg-container>#sugg-list>.item:hover:not(:focus-within) {
+    background-color: #f9f9f9;
+}
+
+.search-container>#sugg-container>#sugg-list>.item>#itemName {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding:0.5vw;
+}
+.search-container>#sugg-container>#sugg-list>.item#item1>#itemName {
+    padding-bottom: 0.3vw;
+    color: #222;
+}
+.search-container>#sugg-container>#sugg-list>.item>#itemName>.material-symbols-outlined {
+    font-size: 1.25em;
+    margin-right: 0.25em;
+}
+
+.search-container>#sugg-container>#sugg-list>.item[data-dropdown="hide"]>#itemName {
+    padding-left: 0.75vw;
+}
+
+.search-container>#sugg-container>#sugg-list>.item[data-selected="true"]>#itemName>#selected-count {
+    margin-left: auto;
+    font-size: 0.7vw;
+    justify-self: flex-end;
+    color: #808080;
+}
+
+.search-container>#sugg-container>#sugg-list>.item[data-selected="true"]>#itemName>#appl-cond {
+    margin-left: 0.5vw;
+    display: flex;
+    align-items: center;
+    font-size: 0.7vw;
+    color: #808080;
+    opacity: 85%;
+}
+.search-container>#sugg-container>#sugg-list>.item[data-selected="true"]>#itemName>#appl-cond>span {
+    font-size: 0.7vw;
+    height: 0.6vw;
+    color: #808080;
+}
+.search-container>#sugg-container>#sugg-list>.item>#itemBody{
+    padding: 0.25vw 0 0.5vw 0;
+}
+.search-container>#sugg-container>#sugg-list>.item>#itemBody>#options{
+    display: flex;
+    margin:0.25vw 1vw;
+    justify-content: flex-start;
+}
+.search-container>#sugg-container>#sugg-list>.item>#itemBody>#options>#new>.material-symbols-outlined {
+    font-size: 0.8vw;
+    color:#27abff;
+}
+.search-container>#sugg-container>#sugg-list>.item#item1>#itemBody>#options>#new{
+    font-size: 0.7vw;
+    letter-spacing: 0.025vw;
+    color:#27abff;
+    display: flex;
+}
+.search-container>#sugg-container>#sugg-list>.item#item1>#itemBody>#options>#clear{
+    font-size: 0.7vw;
+    letter-spacing: 0.025vw;
+    color:#808080;
+    opacity: 85%;
+    display: flex;
+    margin-left: 1vw;
+}
+.search-container>#sugg-container>#sugg-list>.item>#itemBody>#subItems>.subItem {
+    display: flex;
+    align-items: center;
+    padding-left:1vw;
+    height: 1.75vw;
+}
+.search-container>#sugg-container>#sugg-list>.item>#itemBody>#subItems>.subItem:hover:not(:focus-within){
+    background-color: #f2f2f2;
+}
+.search-container>#sugg-container>#sugg-list>.item[data-shown="less"]>#itemBody>#subItems>.subItem.hidden {
+    display: none;
+}
+
+.search-container>#sugg-container>#sugg-list>.item[data-shown="more"]>#itemBody>#subItems>.subItem.hidden {
+    display: flex;
+}
+
+.search-container>#sugg-container>#sugg-list>.item>#itemBody>#subItems>.subItem>label {
+    overflow: hidden;
+    cursor: pointer;
+    font-size: 0.65vw;
+    flex:1;
+    padding: 0.5vw 0;
+}
+.search-container>#sugg-container>#sugg-list>.item>#itemBody>#subItems>.subItem>input {
+    outline: none;
+    border:none;
+    border-bottom: 0.01em solid #e2e2e2;
+    padding: 0.1vw 0;
+    color: #606060;
+    background-color: inherit;
+    font-size: 0.7vw;
+    letter-spacing: 0.05em;
+}
+.search-container>#sugg-container>#sugg-list>.item>#itemBody>#subItems>.subItem>#custom-input {
+    display: flex;
+    font-size: 0.7vw;
+    color: #606060;
+}
+.search-container>#sugg-container>#sugg-list>.item>#itemBody>#subItems>.subItem>#custom-input>input {
+    outline: none;
+    border: none;
+    font-size: 0.7vw;
+    letter-spacing: 0.05vw;
+    padding-bottom: 0.1vw;
+    border-bottom: 0.025em solid #e0e0e0;
+    color: #606060;
+    background-color: inherit;
+}
+.search-container>#sugg-container>#sugg-list>.item[data-type="number"]>#itemBody>#subItems>.subItem>#custom-input>input {
+    width: 3vw;
+}
+.search-container>#sugg-container>#sugg-list>.item>#itemBody>#subItems>.subItem>span#to {
+    margin: 0 1vw;
+}
+.search-container>#sugg-container>#sugg-list>.item>#itemBody>#subItems>.subItem>#custom-input>div#unit {
+    display: flex;
+    align-items: center;
+    border-bottom: 0.025em solid #e0e0e0;
+    padding-bottom: 0.1vw;
+    cursor: pointer;
+}
+.search-container>#sugg-container>#sugg-list>.item[data-field="custom"]>#itemBody>#subItems>.subItem>label {
+    flex:none;
+}
+.search-container>#sugg-container>#sugg-list>.item>#itemBody>#subItems>.subItem>.material-symbols-outlined.edit {
+    font-size: 0.8vw;
+    padding: 0.5vw;
+    color:#7b7b7b;
+}
+.search-container>#sugg-container>#sugg-list>.item>#itemBody>#subItems>.subItem:hover>.material-symbols-outlined.edit {
+    color:#444;
+}
+.search-container>#sugg-container>#sugg-list>.item>#itemBody>#subItems>.subItem>input[type="checkbox"] {
+    cursor: pointer;
+    width: 0.8em;
+    margin-right: 0.65em;
+} */
+
+
+.search-container>#sugg-container>#applied-filts {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.search-container>#sugg-container>#applied-filts>#title {
+    padding: 0.7vw;
+    color: #606060;
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 0.02em solid #f0f0f0;
+}
+
+.search-container>#sugg-container>#applied-filts>#title>#filter-count {
+    margin-right: 0.5vw;
+    font-size: 0.7vw;
+    border-radius: 0.2em;
+    padding: 0.1vw 0.25vw 0.1vw 0.3vw;
+    color: white;
+    background: #27abff;
+}
+
+.search-container>#sugg-container>#applied-filts>#filters {
+    overflow: auto;
+    margin-bottom: auto;
+}
+
+.search-container>#sugg-container>#applied-filts>#filters>.filter {
+    font-size: 0.7vw;
+    letter-spacing: 0.05vw;
+    border: 0.02em solid #e8e8e8;
+    border-radius: 0.3em;
+    color: #222;
+    margin: 0.8vw;
+    /* padding:0.75vw 0; */
+    position: relative;
+}
+
+.search-container>#sugg-container>#applied-filts>#filters>.filter>#filter-close>span {
+    position: absolute;
+    font-size: 1.5em;
+    color: #ff8585;
+    font-variation-settings: 'FILL' 1;
+    top: -0.5em;
+    right: -0.5em;
+}
+.search-container>#sugg-container>#applied-filts>#filters>.filter>#title {
+    cursor: pointer;
+    padding: 0 0.75vw;
+    display: flex;
+    height: 2vw;
+    align-items: center;
+}
+.search-container>#sugg-container>#applied-filts>#filters>.filter>#filterBody{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3vw;
+    padding-bottom: 0.5vw;
+}
+.search-container>#sugg-container>#applied-filts>#filters>.filter>#condition {
+    color: #666;
+    display: flex;
+    font-size: 0.675vw;
+    letter-spacing: 0.065em;
+    align-items: center;
+    cursor: pointer;
+    margin: 0vw 0 0.5vw 0;
+}
+.search-container>#sugg-container>#applied-filts>#filters>.filter>#condition>span {
+    margin-left:0.2vw
+}
+.search-container>#sugg-container>#applied-filts>#filters>.filter>#condition::before {
+    content: " ";
+    display: block;
+    height: 0.05vw;
+    min-width: 5%;
+    left: 0;
+    background: #e8e8e8;
+}
+.search-container>#sugg-container>#applied-filts>#filters>.filter>#condition::after {
+    content: " ";
+    display: block;
+    height: 0.05vw;
+    flex:1;
+    right: 0;
+    background: #e8e8e8;
+}
+.search-container>#sugg-container>#applied-filts>#filters>.filter>#filterBody>#items>#add-new {
+    padding: 0.25vw 0.5vw 0.25vw 0.25vw;
+    border-radius: 0.25em;
+    font-size: 0.6vw;
+    color: #2d92ff;
+    background-color: #fff;
+    border: 0.025em solid #ebebeb;
+    display: flex;
+    justify-content: center;
+    margin-left: 0.5vw;
+    margin-bottom: 0.25vw;
+    width: fit-content;
+    position: absolute;
+    top: 1.75vw;
+    right: 1vw;
+    cursor: pointer;
+}
+.search-container>#sugg-container>#applied-filts>#filters>.filter>#filterBody>#items>#add-new>#icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-container>#sugg-container>#applied-filts>#filters>.filter>#filterBody>#items>#add-new>#icon-wrapper>.material-symbols-outlined.add {
+    font-size: 0.6vw;
+}
+.search-container>#sugg-container>#applied-filts>#filters>.filter>#filterBody>#items>.item>#custom-input {
+    display: flex;
+    margin-left: 0.5vw;
+    font-size: 0.7vw;
+    letter-spacing: 0.05em;
+    color: #606060;
+}
+.search-container>#sugg-container>#applied-filts>#filters>.filter>#filterBody>#items>.item>#custom-input>input {
+    outline: none;
+    border: none;
+    font-size: 0.7vw;
+    letter-spacing: 0.05em;
+    color: #606060;
+    width: 30%;
+    border-bottom: 0.025em solid #e0e0e0;
+    padding-bottom: 0.1vw;
+}
+.search-container>#sugg-container>#applied-filts>#filters>.filter>#filterBody>#items>.item>#custom-input>div#unit {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 0.025em solid #e0e0e0;
+    padding-bottom: 0.1vw;
+}
+
+
+.search-container>#sugg-container #custom-input>div#unit>.material-symbols-outlined,
+.search-container>#sugg-container>#applied-filts>#filters>.filter>#filterBody>#items>.item>div#unit>.material-symbols-outlined {
+    font-size: 0.75vw;
+}
+.search-container>#sugg-container>#applied-filts>#filters>.filter>#filterBody>#items {
+    font-size: 0.75vw;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.1s linear;
+    /* margin-top: 0.3vw; */
+    color: #444;
+}
+
+.search-container>#sugg-container>#applied-filts>#filters>.filter[data-input="select"]>#filterBody>#items {
+    font-size: 0.7vw;
+}
+
+.search-container>#sugg-container>#applied-filts>#filters>.filter[data-input="select"]>#filterBody>#items>.item>#content,
+.search-container>#sugg-container>#applied-filts>#filters>.filter[data-unit="show"][data-addBtn="show"]>#filterBody>#items>.item>#content {
+    font-size: 0.65vw;
+}
+
+.search-container>#sugg-container>#applied-filts>#filters>.filter[data-shown="more"]>#filterBody>#items {
+    max-height: 10vw;
+    overflow: auto;
+}
+
+.search-container>#sugg-container>#applied-filts>#filters>.filter>#filterBody>#items>.item {
+    padding:0 0.15vw;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    height: 1.5vw;
+}
+
+.search-container>#sugg-container>#applied-filts>#filters>.filter[data-unit="show"][data-addBtn="show"]>#filterBody>#items>.item {
+    border: 0.02em solid #e0e0e0;
+    border-radius: 0.25em;
+    padding: 0.2vw 0.25vw;
+}
+
+.search-container>#sugg-container>#applied-filts>#filters>.filter[data-unit="show"][data-addBtn="show"]>#filterBody>#items {
+    margin-top: 0.5vw;
+    margin-left: 0.5vw;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 0.3vw;
+    row-gap: 0.2vw;
+    width: 95%;
+}
+
+.search-container>#sugg-container>#applied-filts>#filters>.filter[data-shown="less"]>#filterBody>#items>.item.hidden {
+    display: none;
+}
+
+.search-container>#sugg-container>#applied-filts>#filters>.filter>#filterBody>#items>.item>#content {
+    outline: none;
+    color: #606060;
+    font-size: 0.7vw;
+    padding: 0.5vw;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.search-container>#sugg-container>#applied-filts>#filters>.filter[data-input="select"]>#filterBody>#items>.item>#content {
+    width: 100%;
+}
+.search-container>#sugg-container>#applied-filts>#filters>.filter[data-input="select"]:hover>#filterBody>#items>.item>#content{
+    width:95%;
+}
+.search-container>#sugg-container>#applied-filts>#filters>.filter[data-input="custom"]>#filterBody>#items>.item>#content {
+    padding-right: 0;
+}
+.search-container>#sugg-container>#applied-filts>#filters>.filter>#filterBody>#items>.item>input {
+    margin:0 0.45vw;
+    width:100%;
+    outline: none;
+    border:none;
+    border-bottom: 0.01em solid #e2e2e2;
+    padding: 0.1vw 0;
+    color: #606060;
+    background-color: inherit;
+    font-size: 0.7vw;
+    letter-spacing: 0.05em;
+}
+.search-container>#sugg-container>#applied-filts>#filters>.filter>#filterBody>#items>.item>.material-symbols-outlined {  
+    font-size: 1em;
+    margin:0 0.2vw;
+    color: #7b7b7b;
+}
+.search-container>#sugg-container>#applied-filts>#filters>.filter>#filterBody>#items>.item>.material-symbols-outlined.close {
+    display: none;
+}
+.search-container>#sugg-container>#applied-filts>#filters>.filter:hover>#filterBody>#items>.item>.material-symbols-outlined.close {
+    display: block;
+    position:absolute;
+    right: 0.25vw;
+}
+.search-container>#sugg-container>#applied-filts>#filters>.filter:hover>#filterBody>#items>.item:hover>.material-symbols-outlined.close {
+    color: rgb(255, 106, 106);
+}
+.search-container>#sugg-container>#applied-filts>#filters>.filter:hover>#filterBody>#items>.item:hover>.material-symbols-outlined.edit {
+    color: #444;
+}
+
+.search-container>#sugg-container>#applied-filts>#filters>.filter>#condition>.material-symbols-outlined {
+    font-size: 1em;
+    height: 0.7em;
+    margin-right: 0.3vw;
+}
+
+.search-container>#sugg-container>#applied-filts>#action-btns {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 0.025em solid #f0f0f0;
+    font-size: 0.75vw;
+    padding: 0.25vw;
+}
+
+.search-container>#sugg-container>#applied-filts>#action-btns>span {
+    padding: 0.35vw 0.4vw;
+    border-radius: 0.25em;
+    margin: 0.3vw;
+    text-align: center;
+    min-width: 3.5vw;
+}
+
+.search-container>#sugg-container>#applied-filts>#action-btns>#cancel {
+    color: #6a6a6a;
+    background-color: #fefefe;
+    border: 0.025em solid #e0e0e0;
+}
+
+.search-container>#sugg-container>#applied-filts>#action-btns>#apply {
+    color: #fefefe;
+    background-color: #3fa5ff;
+    border: 0.025em solid #2d92ff;
+}
+
+.search-container>#sugg-container #view-dropdwn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.675vw;
+    letter-spacing: 0.065em;
+    color: #7a7a7a;
+}
+
+.search-container>#sugg-container>#sugg-list #view-dropdwn {
+    margin: 0 0 0.4vw 0.5vw;
+}
+
+.search-container>#sugg-container #view-dropdwn>#view-less {
+    display: none;
+}
+
+.search-container>#sugg-container #view-dropdwn[data-shown="view-less"]>#view-less {
+    display: flex;
+    align-items: center;
+    margin: 0.35vw 0 0.2vw 0.75vw;
+}
+
+.search-container>#sugg-container #view-dropdwn[data-shown="view-less"]>#view-more {
+    display: none;
+}
+
+.search-container>#sugg-container #view-dropdwn[data-shown="view-more"]>#view-less {
+    display: none;
+}
+
+.search-container>#sugg-container #view-dropdwn[data-shown="view-more"]>#view-more {
+    display: flex;
+    align-items: center;
+    margin: 0.2vw 0 0.25vw 0.75vw;
+}
+
+.search-container>#sugg-container #view-dropdwn .material-symbols-outlined {
+    font-size: 1em;
+    height: 0.7em;
+    margin-left: 0.1vw;
+}
+
+.search-container .material-symbols-outlined {
+    cursor: pointer;
+    font-size: 1.25em;
+}
+
+.search-container ::-webkit-scrollbar {
+    width: 0.4vw;
+}
+
+.search-container ::-webkit-scrollbar-track {
+    background: #f0f0f0;
+}
+
+.search-container ::-webkit-scrollbar-thumb {
+    background-color: #d3d3d3;
+    border-radius: 0.5em;
+    border: 0.1vw solid #cecece;
+}
+

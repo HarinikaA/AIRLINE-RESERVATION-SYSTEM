@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Filter Component</title>
+
+  <script src="/Components/sample_data.js"></script>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <script src="SearchFilterUtil.js"></script>
+
+  <script src="/Components/Filter/filter_controller.js"></script>
+  <script src="/Components/Filter/filter_view.js"></script>
+  <script src="/Components/SuggFiltContainer/suggFiltContainer_controller.js"></script>
+  <script src="/Components/SuggFiltContainer/suggFiltContainer_view.js"></script>
+  <script src="/Components/FilterCriteriaList/filterCriteriaList_controller.js"></script>
+  <script src="/Components/FilterCriteriaList/filterCriteriaList_view.js"></script>
+  <script src="/Components/FilterCriteria/filtercriteria_controller.js"></script>
+  <script src="/Components/FilterCriteria/filtercriteria_view.js"></script>
+  <script src="/Components/FilterCriteriaTemplates/filterCriteriaTemplates_controller.js"></script>
+  <script src="/Components/FilterCriteriaTemplates/filterCriteriaTemplates_view.js"></script>
+
+  <script src="/Components/DropdownComponent/dropdown_controller.js"></script>
+  <script src="/Components/DropdownComponent/dropdown_view.js"></script>
+
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/MI-icons.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="Components/Filter/filter_view.css" />
+  <link rel="stylesheet" href="Components/SuggFiltContainer/suggFiltContainer_view.css" />
+  <link rel="stylesheet" href="Components/FilterCriteriaList/filterCriteriaList_view.css" />
+  <link rel="stylesheet" href="Components/FilterCriteria/filtercriteria_view.css" />
+  <link rel="stylesheet" href="Components/FilterCriteriaTemplates/filterCriteriaTemplates_view.css" />
+  <link rel="stylesheet" href="/Components/DropdownComponent/dropdown_view.css"/>
+</head>
+
+<body>
+  <div id="overall-container">
+    <div id="filter">
+      <filter-controller></filter-controller>
+    </div>
+  </div>
+
+  <script type="module">
+    import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+
+    var filterRootVueObject = Vue.createApp({});
+    filterRootVueObject.component('filter-controller', filter_controller);
+    filterRootVueObject.component('filter-component', filter_component);
+    filterRootVueObject.component('suggFiltContainer-controller', suggFiltContainer_controller);
+    filterRootVueObject.component('suggFiltContainer-component', suggFiltContainer_component);
+    filterRootVueObject.component('filterCriteriaList-controller', filterCriteriaList_controller);
+    filterRootVueObject.component('filterCriteriaList-component', filterCriteriaList_component);
+    filterRootVueObject.component('filterCriteria-controller', filterCriteria_controller);
+    filterRootVueObject.component('filterCriteria-component', filterCriteria_component);
+    filterRootVueObject.component('filterCriteria-templates-controller', filterCriteriaTemplates_controller);
+    filterRootVueObject.component('filterCriteria-templates-component', filterCriteriaTemplates_component);
+    filterRootVueObject.component('dropdown-controller', dropdown_controller);
+    filterRootVueObject.component('dropdown-component', dropdown_component);
+    
+    filterRootVueObject.mount("#filter");
+  </script>
+</body>
+
+</html>
